@@ -1,10 +1,6 @@
 var map, marker, geocoder, selectedCountryShort, selectedCountryLong, selectedProvinceShort, selectedProvinceLong, selectedCurrencyObj,worldLayer,provinceLayer, intersectionInfowindow;
 var countryAppenders = [];
 
-
-
-
-
 var drillLvl = 0;
 var currentCountry;
 
@@ -31,8 +27,6 @@ var hotelBox;
 
 /**
  * Initializes all the Google maps stuff.  Registers a map click listener.
- *
- * Uses globals: geocoder, map, map_canvas (div tag).
  */
 function initializeMaps() {
 	console.log("Initializing Google Maps");
@@ -236,10 +230,7 @@ function placeUSResortMarkers(node) {
 
 
 /**
- *	Sends an AJAX request to Wunderground.com for a four day weather forecast
- *	and stores the data inside a <div> element
- *
- *	@param coordinates of last clicked marker
+ *	Sends an AJAX request to Wunderground.com for a four day weather forecast and stores the data inside a <div> element
  */
 function getWeatherData(coordinates)	{
 	if(weatherBox != null){ // If hotelBox currentl has data in it
@@ -291,10 +282,7 @@ function getWeatherData(coordinates)	{
 
 
 /**
- *	Sends an AJAX request to Yahoo for hotel information 
- *	and stores the data inside a <div> element.
- *
- *	@param coordinates of last clicked marker
+ *	Sends an AJAX request to Yahoo for hotel information and stores the data inside a <div> element.
  */
 function getNearbyLodging(coordinates) {
 	if(hotelBox != null){ // If hotelBox currentl has data in it from previous lookup
@@ -381,11 +369,7 @@ function parseRating(data) {
 }
 
 /**
- * Does a reverse geocode lookup on Google's service to find the country for a given lat/long.  When
- * the country is found, looks-up currency information for that country. Indirectly causes
- * a UI update by calling GetCurrencyData().
- * 
- * Uses globals: selectedCountryShort, selectedCountryLong, selectedCountryInEU
+ * Does a reverse geocode lookup on Google's service to find the country for a given lat/long.
  */
 function codeAddress(latlng) {
 
