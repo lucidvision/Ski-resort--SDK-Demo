@@ -64,8 +64,6 @@
 	function refresh()	{
 		
 		ajaxRequest = $.ajax({url: server + '/biprws/raylight/v1/documents/'+docID+'/parameters/', type: 'put',
-			// Data payload for reports with no parameters is not required in builds higher than 666, uncomment below line to enable data payload
-			//data: '<parameters><parameter><id>0</id><answer><values><value id=""/></values></answer></parameter></parameters>',
 			success: function(xhr) {
 				exportReport(docID,1,'xml',true);
 			},
